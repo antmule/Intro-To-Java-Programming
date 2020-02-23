@@ -5,26 +5,29 @@
     the total cost of four years’ worth of tuition after the tenth year.
 */
 
-public class Exercise_05_07{
-    public static void main(String[] args){
+import java.util.Scanner;
+public class FutureInvestment {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
         double tuition = 10000.0;
-        double yearlyIncreasePercentage = 0.05;
-        
+        double yearlyIncreasePercentage = 1.05;
         double tuitionInTenYears = 0.0;
         double fourYearsOfTuition = 0.0;
 
-        for (int i = 0; i < 14; i++){
-            tuition += tuition * yearlyIncreasePercentage; 
+        for (int i = 0; i < 10; i++) {
+            tuition *= yearlyIncreasePercentage; 
+        }
+		
+        System.out.printf("Tuition in ten years is: $%8.2f", tuition);
             
-            if (i == 9)
-                tuitionInTenYears = tuition;
-
-            if (i == 10 || i == 11| i == 12 || i == 13)
+        for (int i = 10; i <= 13; i++ ) 
+        {
                 fourYearsOfTuition += tuition;
+                tuition *= yearlyIncreasePercentage;
         }
 
-        System.out.printf("Tuition cost after 10 years is: $%.2f%n" + 
-            "Four years of tuition after 10 years is: $%.2f%n", 
-            tuitionInTenYears, fourYearsOfTuition);
-    }
-}
+        System.out.printf("\nThe four-year tuition in 10 years is: $%8.2f", fourYearsOfTuition );
+	}
+
+}	 
